@@ -13,7 +13,7 @@ module.exports = {
   mode: 'production',
   output: {
     filename: '[name]-bundle.[hash].js',
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../build/client'),
     publicPath: '/',
   },
   optimization: {

@@ -1,5 +1,4 @@
 /* eslint react/prop-types: 0 */
-
 import React from 'react';
 import Welcome from 'src/Components/Welcome';
 import Head from 'src/Components/Head';

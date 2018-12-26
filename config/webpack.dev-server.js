@@ -4,15 +4,15 @@ const externals = require('./node-externals');
 
 module.exports = {
   name: 'server',
-  target: 'node',
-  externals,
+  target: 'node', // not touch any built in modules like fs or path
+  externals, // Exclude node_modules from bundling since this code is running on server
   entry: './src/server/render.js',
   mode: 'development',
   output: {
     filename: 'dev-server-bundle.js',
     chunkFilename: '[name].js',
-    path: path.resolve(__dirname, '../build'),
-    libraryTarget: 'commonjs2',
+    path: path.resolve(__dirname, '../build/server'),
+    libraryTarget: 'commonjs2', // without this, you cannot require('your-library')
   },
   module: {
     rules: [
@@ -52,5 +52,8 @@ module.exports = {
         NODE_ENV: JSON.stringify('development'),
       },
     }),
+    new webpack.NormalModuleReplacementPlugin(
+      /\/iconv-loader$/, 'node-noop',
+    ),
   ],
 };
