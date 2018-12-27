@@ -1,12 +1,12 @@
 import React from 'react';
 import universal from 'react-universal-component';
 import { Route, Switch } from 'react-router';
-import Nav from 'src/Components/Nav';
+import Header from 'src/Components/Header';
 import Head from 'src/Components/Head';
 import Loading from 'src/Components/Loading';
 import { RedirectWithStatus } from 'src/Components/SSR';
 
-const UniversalComponent = universal(props => import(`../Containers/${props.page}`), {
+const UniversalComponent = universal(props => import(`../Pages/${props.page}`), {
   loading: () => <Loading />,
   ignoreBabelRename: true,
 });
@@ -14,7 +14,7 @@ const UniversalComponent = universal(props => import(`../Containers/${props.page
 export default ({ lang }) => (
   <React.Fragment>
     <Head />
-    <Nav lang={lang} />
+    <Header lang={lang} />
 
     <Switch>
       <Route

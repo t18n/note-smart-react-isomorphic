@@ -40,10 +40,15 @@ class Posts extends React.Component {
   }
 }
 
+Posts.defaultProps = {
+  staticContext: {},
+};
+
+
 Posts.propTypes = {
   staticContext: PropTypes.shape({
     data: PropTypes.array,
-  }).isRequired,
+  }),
 };
 
 export default Posts;

@@ -1,51 +1,49 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Box } from 'rebass';
 
 const Anchor = ({
-  href, imgSrc, imgAlt, children, newpage, ...rest
+  href, imgSrc, imgAlt, children, newpage, display, textColor, ...rest
 }) => (
-  <StyledAnchor
-    href={href}
-    target={newpage ? '_blank' : ''}
-    rel={newpage ? 'noopener' : ''}
-    {...rest}
-  >
-    {
-      imgSrc
-      && <img alt={imgAlt} src={imgSrc} {...rest} />
-    }
-    {children}
-  </StyledAnchor>
+  <Box css={`display: ${display}`} {...rest}>
+    <StyledAnchor
+      href={href}
+      target={newpage ? '_blank' : ''}
+      rel={newpage ? 'noopener' : ''}
+      textColor={textColor}
+      {...rest}
+    >
+      {
+        imgSrc
+        && <img alt={imgAlt} src={imgSrc} {...rest} />
+      }
+      {children}
+    </StyledAnchor>
+  </Box>
 );
 
 const StyledAnchor = styled.a`
   justify-content: center;
   align-items: center;
-  text-decoration: none;
   cursor: ${props => (props.href ? 'pointer' : 'default')};
-  display: ${props => (props.display)};
-  text-decoration: ${props => (props.underline)};
-  color: ${props => props.theme.colors.secondary};
-
-  &:hover {
-    color: ${props => props.theme.colors.primary};
-  }
+  text-decoration: ${props => (props.underline ? 'underline' : 'none')};
+  color: ${props => (props.textColor ? props.theme.colors.black : props.theme.colors.primary)};
 
   img {
-    width: ${props => (props.imgwidth)};
+    max-width: 100%;
     height: ${props => (props.imgheight)};
   }
 `;
 
 Anchor.defaultProps = {
-  display: 'inline-block',
-  underline: null,
+  display: 'inline',
+  underline: false,
   newpage: null,
   href: '#',
-  imgwidth: '100px',
   imgheight: '40px',
   imgAlt: '',
+  textColor: false,
 };
 
 Anchor.propTypes = {
@@ -53,9 +51,9 @@ Anchor.propTypes = {
   underline: PropTypes.bool,
   newpage: PropTypes.bool,
   href: PropTypes.string,
-  imgwidth: PropTypes.string,
   imgheight: PropTypes.string,
   imgAlt: PropTypes.string,
+  textColor: PropTypes.bool,
 };
 
 export default Anchor;

@@ -1,7 +1,7 @@
-import Home from 'src/Containers/Home';
-import Login from 'src/Containers/Login';
-import NotFound404 from 'src/Containers/404';
-import Posts from 'src/Containers/Posts';
+import Home from 'src/Pages/Home';
+import Login from 'src/Pages/Login';
+import NotFound404 from 'src/Pages/404';
+import Posts from 'src/Pages/Posts';
 
 import loadData from 'src/helpers/loadData';
 

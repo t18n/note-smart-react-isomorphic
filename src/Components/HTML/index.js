@@ -6,7 +6,7 @@ const Markup = ({
     <head>
       <title>Brightizen</title>
       <meta charSet="utf-8" />
-      <meta name="theme-color" content="#52c41a">
+      <meta name="theme-color" content="#1890ff">
 
       ${styles}
       ${pageTitle}
