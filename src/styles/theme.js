@@ -2,14 +2,20 @@ const theme = {};
 
 // Color names that can be used in color, bg, and borderColor props
 theme.colors = {
-  primary: '#1890ff',
+  // Brand
+  primary: '#FF6D00',
+  secondary: '#FF9800',
+
+  // Message
   success: '#a0d911',
   danger: '#f5222d',
   warning: '#fadb14',
+  info: '#1890ff',
+
+  // Basic
   grey: '#8c8c8c',
   black: '#001F00',
-  white: '#FFFFFF',
-  oldPaper: '#F8ECC2',
+  white: '#fdfdfc',
 };
 
 // Array of viewport widths to use for min-width media queries - Mobile first
@@ -20,7 +26,7 @@ theme.maxRowWidth = [500, 700, 960, 1200]; // px
 
 // Values for the fontFamily prop
 theme.fonts = {
-  brand: 'Baumans',
+  brand: 'Righteous',
   headline: '\'Alegreya Sans\', \'Times\', \'Georgia\'',
   body: '\'Roboto\', \'sans-serif\'',
 };
