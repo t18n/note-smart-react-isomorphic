@@ -68,6 +68,11 @@ module.exports = {
         "int32Hint": true,
       }
     ],
+
+    // Disable react/destructuring-assignment
+    "react/destructuring-assignment": [
+      0,
+    ]
   },
 
   "settings": {

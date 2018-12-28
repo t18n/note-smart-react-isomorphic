@@ -1,5 +1,6 @@
 ---
 title: If you want to go far 
+slug: if-you-want-to-go-far
 author: Turbo
 cover: "cover.jpg"
 date: "2018-11-08"

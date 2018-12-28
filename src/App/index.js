@@ -40,6 +40,12 @@ export default ({ lang }) => (
         render={routeProps => <UniversalComponent page="Posts" {...routeProps} />}
       />
 
+      <Route
+        exact
+        path="/:lang/posts/:slug"
+        render={routeProps => <UniversalComponent page="Post" {...routeProps} />}
+      />
+
       {/* Define Redirect logic if any */}
       <RedirectWithStatus httpStatus={301} exact from="/:lang" to={`/${lang}`} />
       <RedirectWithStatus httpStatus={301} from="/:lang/users" to="/" />

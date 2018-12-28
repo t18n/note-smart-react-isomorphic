@@ -1,5 +1,6 @@
 ---
 title: Be the way you are
+slug: be-the-way-you-are
 author: P!nk
 cover: "1.jpg"
 date: "2017-03-01"

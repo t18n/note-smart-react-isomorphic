@@ -9,8 +9,8 @@ import loadData from 'src/helpers/loadData';
 const routes = [
   { path: '/', exact: true, component: Home },
   { path: '/login', component: Login },
-  { path: '/posts', component: Posts },
-  { path: '/books', component: Books, loadData: () => loadData('posts') },
+  { path: '/books', component: Books },
+  { path: '/posts', component: Posts, loadData: () => loadData('posts') },
   { component: NotFound404 },
 ];
 

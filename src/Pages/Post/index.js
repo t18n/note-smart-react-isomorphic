@@ -1,8 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import truncate from 'src/helpers/truncate';
 import FlexBox from 'src/Components/FlexBox';
 import CardBox from 'src/Components/CardBox';
 import { H3, Span } from 'src/Components/Typo';
@@ -17,21 +15,20 @@ const postFiles = postContext
   .keys()
   .map(filename => postContext(filename));
 
-class Posts extends React.Component {
+class Post extends React.Component {
   state = {
-    posts: [],
-    lang: 'en',
+    post: {},
   }
 
   componentDidMount() {
-    const posts = postFiles;
-    const { lang } = this.props.match.params;
-    this.setState(state => ({ ...state, posts, lang }));
+    const post = postFiles.find(p => p.slug === this.props.match.params.slug);
+    console.log(post);
+    this.setState(state => ({ ...state, post }));
   }
 
   render() {
     /* eslint-disable react/no-array-index-key */
-    const { posts, lang } = this.state;
+    const { post } = this.state;
 
     return (
       <React.Fragment>
@@ -44,20 +41,14 @@ class Posts extends React.Component {
           alignItems="flex-start"
           justifyContent="space-between"
         >
-          {
-            posts.map((post, i) => (
-              <CardBox width={[1, 1/3]} px={[1, 2, 3]} py={[0, 1, 2]} mx={[1, 2, 3]}>
-                <Link key={i} to={`/${lang}/posts/${post.slug}`}>
-                  <H3 dangerouslySetInnerHTML={{ __html: post.title }} />
-                </Link>
-                <Span dangerouslySetInnerHTML={{ __html: truncate(post.__content) }} />
-                <FlexBox width={1}>
-                  <Badge bg="success" dangerouslySetInnerHTML={{ __html: post.category }} />
-                  <Span float="right" dangerouslySetInnerHTML={{ __html: post.date }} />
-                </FlexBox>
-              </CardBox>
-            ))
-          }
+          <CardBox width={1} px={[1, 2, 3]} py={[0, 1, 2]} mx={[1, 2, 3]}>
+            <H3 dangerouslySetInnerHTML={{ __html: post.title }} />
+            <Span dangerouslySetInnerHTML={{ __html: post.__content }} />
+            <FlexBox width={1}>
+              <Badge bg="success" dangerouslySetInnerHTML={{ __html: post.category }} />
+              <Span float="right" dangerouslySetInnerHTML={{ __html: post.date }} />
+            </FlexBox>
+          </CardBox>
         </FlexBox>
       </React.Fragment>
     );
@@ -65,12 +56,13 @@ class Posts extends React.Component {
   }
 }
 
-Posts.propTypes = {
+Post.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
+      slug: PropTypes.string.isRequired,
       lang: PropTypes.string.isRequired,
     }),
   }).isRequired,
 };
 
-export default Posts;
+export default Post;

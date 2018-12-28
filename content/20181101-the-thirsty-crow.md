@@ -1,5 +1,6 @@
 ---
-title: Kaalu – the Thirsty Crow 
+title: Kaalu – the Thirsty Crow
+slug: kaali-the-thirsty-crow
 author: Unknown
 cover: "1.jpg"
 date: "2018-11-01"
