@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { TextBlock } from 'src/Components/Typo';
+import { Text } from 'rebass';
 
 const Label = ({
   id, label, children, ...rest
@@ -12,9 +12,10 @@ const Label = ({
   </StyledLabel>
 );
 
-const TextBlockLabel = TextBlock.withComponent('label');
+const TextWithLabel = Text.withComponent('label');
 
-const StyledLabel = styled(TextBlockLabel)`
+const StyledLabel = styled(TextWithLabel)`
+  font-family: ${props => props.theme.fonts.body};
   display: flex;
   flex-direction: column;
   width: 100%;

@@ -1,13 +1,9 @@
 import React from 'react';
-import logo from 'src/assets/images/full-logo.svg';
+// import LoadingBar from 'react-redux-loading-bar';
 
-function Loading() {
-  return (
-    <div>
-      Loading...
-      <img src={logo} alt="Loading Logo" />
-    </div>
-  );
-}
+const Loading = () => (
+  // <LoadingBar />
+  <div>...Loading</div>
+);
 
 export default Loading;

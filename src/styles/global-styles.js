@@ -29,6 +29,7 @@ const GlobalizeStyle = createGlobalStyle`
   body {
     font-family: ${props => props.theme.fonts.body};
     color: ${props => props.theme.colors.black};
+    background: ${props => props.theme.colors.oldPaper};
     margin: 0;
     padding: 0;
     width: 100%;

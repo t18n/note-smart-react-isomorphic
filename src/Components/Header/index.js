@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 
 import logo from 'src/assets/images/full-logo.svg';
 
+import Head from 'src/Components/Head';
 import FlexBox from 'src/Components/FlexBox';
 import MainNav from './MainNav';
 import Brand from './Brand';
 
-
-const Header = ({ lang }) => (
+const Header = ({ lang, ...rest }) => (
   <MainNav
     bg="oldPaper"
     boxShadow={1}
@@ -17,6 +17,7 @@ const Header = ({ lang }) => (
     py={[1, 2, 3]}
     px={[3, 4, 5]}
   >
+    <Head {...rest} />
     <FlexBox
       width={1}
       alignItems="center"
@@ -24,7 +25,6 @@ const Header = ({ lang }) => (
     >
       <Brand to={`/${lang}`} src={logo} height="30px" />
       <FlexBox alignItems="center" justifyContent="flex-end">
-        <NavLink to={`/${lang}/about`} mr={[1, 2, 3]}>About</NavLink>
         <NavLink to={`/${lang}/posts`} mr={[1, 2, 3]}>Posts</NavLink>
         <NavLink to={`/${lang}/books`} mr={[1, 2, 3]}>Books</NavLink>
         <NavLink to={`/${lang}/login`} mr={[1, 2, 3]}>Login</NavLink>

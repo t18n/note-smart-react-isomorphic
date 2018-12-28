@@ -1,25 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Container from 'src/Components/Container';
+// import Container from 'src/Components/Container';
 
 const arrowDown = 'static/icons/arrow_solid_black.svg';
 
-const StyledInputField = styled(Container)`
+const StyledInputField = styled.input`
   appearance: none;
   outline: 0;
   flex-grow: 1;
   box-shadow: none;
-  border-radius: ${props => props.theme.radius[1]};
+  border-radius: ${props => props.theme.radius[1]}px;
   padding: ${props => props.theme.space[2]}px;
-  border: 1px solid ${props => props.theme.colors.secondary};
+  border: 1.2px solid ${props => (props.isShow ? props.theme.colors.danger : props.theme.colors.primary)};
 
   &::placeholder {
     color: ${props => props.theme.colors.grey};
   }
 
   &:focus {
-    border: 1.2px solid ${props => props.theme.colors.primary};
+    border: 1.2px solid ${props => props.theme.colors.info};
     transition: all .3s ease-out;
   }
 
@@ -52,12 +52,12 @@ const StyledInputField = styled(Container)`
   }
 `;
 
-const StyledContainerInput = StyledInputField.withComponent('input');
+// const StyledContainerInput = StyledInputField.withComponent('input');
 
 const InputField = ({
   id, placeholder, type, ...rest
 }) => (
-  <StyledContainerInput id={id} placeholder={placeholder} type={type} {...rest} />
+  <StyledInputField id={id} placeholder={placeholder} type={type} {...rest} />
 );
 
 InputField.defaultProps = {

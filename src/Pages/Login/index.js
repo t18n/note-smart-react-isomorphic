@@ -1,8 +1,11 @@
 import React from 'react';
 import { Form, Input } from 'src/Components/FormElements';
+import Head from 'src/Components/Head';
+import Footer from 'src/Components/Footer';
 
 const Login = () => (
   <React.Fragment>
+    <Head title="Login" />
     <Form width={[1, 1/2, 1/3]} mt={[3, 4, 5]}>
       <Input
         id="login-username"
@@ -27,8 +30,12 @@ const Login = () => (
         width="100%"
         placeholder="Enter your password"
         type="password"
+        isShow
+        message="Wrong Password"
+        messageType="danger"
       />
     </Form>
+    <Footer />
   </React.Fragment>
 );
 

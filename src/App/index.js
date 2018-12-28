@@ -2,7 +2,7 @@ import React from 'react';
 import universal from 'react-universal-component';
 import { Route, Switch } from 'react-router';
 import Header from 'src/Components/Header';
-import Head from 'src/Components/Head';
+import Footer from 'src/Components/Footer';
 import Loading from 'src/Components/Loading';
 import { RedirectWithStatus } from 'src/Components/SSR';
 
@@ -13,7 +13,6 @@ const UniversalComponent = universal(props => import(`../Pages/${props.page}`), 
 
 export default ({ lang }) => (
   <React.Fragment>
-    <Head />
     <Header lang={lang} />
 
     <Switch>
@@ -25,14 +24,14 @@ export default ({ lang }) => (
 
       <Route
         exact
-        path="/:lang/about"
-        render={routeProps => <UniversalComponent page="About" {...routeProps} />}
+        path="/:lang/login"
+        render={routeProps => <UniversalComponent page="Login" {...routeProps} />}
       />
 
       <Route
         exact
-        path="/:lang/login"
-        render={routeProps => <UniversalComponent page="Login" {...routeProps} />}
+        path="/:lang/books"
+        render={routeProps => <UniversalComponent page="Books" {...routeProps} />}
       />
 
       <Route
@@ -50,6 +49,7 @@ export default ({ lang }) => (
       <Route render={routeProps => <UniversalComponent page="404" {...routeProps} />} />
     </Switch>
 
+    <Footer />
     {/* Footer here */}
   </React.Fragment>
 );

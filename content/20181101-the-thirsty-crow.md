@@ -1,6 +1,9 @@
 ---
 title: Kaalu – the Thirsty Crow 
 author: Unknown
+cover: "1.jpg"
+date: "2018-11-01"
+category: "Moral story"
 ---
 
 It was a hot summer day, and Kaalu the crow was very thirsty. He flew here and there looking for water. He saw a pot with water. He went close to the pot Kaalu saw that there was very little water in it. Kaalu could not reach the water. 

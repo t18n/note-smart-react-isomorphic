@@ -22,6 +22,10 @@ theme.colors = {
   grey: '#8c8c8c',
   black: '#001F00',
   white: '#fdfdfc',
+
+  // Bg
+  oldPaper: '#F9F9F7',
+  oldPaperDarker: '#F4F1EA',
 };
 
 // Values for the fontFamily prop

@@ -7,16 +7,16 @@ import Validation from './Validation';
 import InputField from './InputField';
 
 const Input = ({
-  placeholder, label, type, id,
+  placeholder, label, type, id, flexDirection,
   isShow, messageType, message, hasButton, ...rest
 }) => (
-  <FlexBox {...rest}>
+  <FlexBox flexDirection={flexDirection} {...rest}>
     {/* Show Label if label props is true */}
     {label
       // eslint-disable-next-line jsx-a11y/label-has-for
       && (
         <Label htmlFor={id} label={label}>
-          <InputField id={id} placeholder={placeholder} type={type} {...rest} />
+          <InputField id={id} placeholder={placeholder} type={type} isShow={isShow} {...rest} />
         </Label>
       )
     }
@@ -33,10 +33,11 @@ const Input = ({
 
 Input.defaultProps = {
   children: null,
-
+  flexDirection: 'column',
 };
 
 Input.propTypes = {
+  flexDirection: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,

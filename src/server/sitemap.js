@@ -18,7 +18,7 @@ const SiteMap = `<?xml version="1.0" encoding="UTF-8"?>
       <priority>0.80</priority>
     </url>
     <url>
-      <loc>https://brightizen/en/about</loc>
+      <loc>https://brightizen/en/posts</loc>
       <lastmod>2018-12-30T20:22:04+00:00</lastmod>
       <priority>0.80</priority>
     </url>
