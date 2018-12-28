@@ -1,14 +1,10 @@
 import styled from 'styled-components';
-import { Flex } from 'rebass';
+import Container from 'src/Components/Container';
 
-const MainNav = styled(Flex)`
-  max-width: 100%;
-  box-shadow: 0 0 4px rgba(0, 0, 0, .125);
-  font-weight: bold;
+const MainNav = styled(Container)`
+  width: 100%;
+  box-shadow: ${props => props.theme.boxShadows[0]};
+  font-weight: ${props => props.theme.fontWeights[7]};
 `;
-
-MainNav.defaultProps = {
-  mx: 'auto',
-};
 
 export default MainNav;

@@ -1,59 +1,49 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Box } from 'rebass';
+import Container from 'src/Components/Container';
+
+const StyledAnchor = styled.a`
+  cursor: ${props => (props.href ? 'pointer' : 'default')};
+  text-decoration: ${props => (props.underline)};
+  color: ${props => (props.textColor ? props.theme.colors.black : props.theme.colors.primary)};
+  &:active, &:hover {
+    color: ${props => props.theme.colors.primary};
+  }
+`;
 
 const Anchor = ({
-  href, imgSrc, imgAlt, children, newpage, display, textColor, ...rest
+  children, newpage, textColor, ...rest
 }) => (
-  <Box css={`display: ${display}`} {...rest}>
+  <Container {...rest}>
     <StyledAnchor
-      href={href}
       target={newpage ? '_blank' : ''}
       rel={newpage ? 'noopener' : ''}
       textColor={textColor}
       {...rest}
     >
-      {
-        imgSrc
-        && <img alt={imgAlt} src={imgSrc} {...rest} />
-      }
       {children}
     </StyledAnchor>
-  </Box>
+  </Container>
 );
-
-const StyledAnchor = styled.a`
-  justify-content: center;
-  align-items: center;
-  cursor: ${props => (props.href ? 'pointer' : 'default')};
-  text-decoration: ${props => (props.underline ? 'underline' : 'none')};
-  color: ${props => (props.textColor ? props.theme.colors.black : props.theme.colors.primary)};
-
-  img {
-    max-width: 100%;
-    height: ${props => (props.imgheight)};
-  }
-`;
 
 Anchor.defaultProps = {
   display: 'inline',
-  underline: false,
+  underline: 'none',
   newpage: null,
-  href: '#',
-  imgheight: '40px',
-  imgAlt: '',
   textColor: false,
+  children: undefined,
 };
 
 Anchor.propTypes = {
   display: PropTypes.string,
-  underline: PropTypes.bool,
+  underline: PropTypes.string,
   newpage: PropTypes.bool,
-  href: PropTypes.string,
-  imgheight: PropTypes.string,
-  imgAlt: PropTypes.string,
   textColor: PropTypes.bool,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
 };
 
 export default Anchor;

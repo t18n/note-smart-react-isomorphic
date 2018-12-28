@@ -60,6 +60,14 @@ module.exports = {
 
     // Allow console.log inside component
     "no-console": "off",
+
+    // Allow to write operation without space
+    "space-infix-ops": [
+      0, 
+      {
+        "int32Hint": true,
+      }
+    ],
   },
 
   "settings": {

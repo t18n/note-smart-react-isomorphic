@@ -1,22 +1,23 @@
 import React from 'react';
+import { Image } from 'rebass';
+
+import Container from 'src/Components/Container';
+import { H1, P } from 'src/Components/Typo';
 import Head from 'src/Components/Head';
-import Content from 'src/Components/Content';
 
 const MarkdownData = require('data/post.md');
 const imagePath = require('src/assets/images/full-logo.svg');
 
 function About() {
   return (
-    <div>
+    <React.Fragment>
       <Head title="Brightizen" />
-      <Content>
-        <div>
-          <img src={imagePath} alt="" />
-          <h1>{MarkdownData.title}</h1>
-          <div>{MarkdownData.__content}</div>
-        </div>
-      </Content>
-    </div>
+      <Container width={[1, 1/2, 1/2]} mx="auto" mt={[2, 3, 4]}>
+        <Image src={imagePath} alt="Brightizen" />
+        <H1>{MarkdownData.title}</H1>
+        <P>{MarkdownData.__content}</P>
+      </Container>
+    </React.Fragment>
   );
 }
 

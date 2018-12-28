@@ -1,5 +1,11 @@
 const theme = {};
 
+// Array of viewport widths to use for min-width media queries - Mobile first
+theme.breakpoints = [512, 768, 1024, 1280, 1600];
+
+// Array of max Row width according to breakpoints above
+theme.maxRowWidth = [500, 700, 960, 1200, 1500]; // px
+
 // Color names that can be used in color, bg, and borderColor props
 theme.colors = {
   // Brand
@@ -18,12 +24,6 @@ theme.colors = {
   white: '#fdfdfc',
 };
 
-// Array of viewport widths to use for min-width media queries - Mobile first
-theme.breakpoints = [32, 48, 64, 80]; // em
-
-// Array of max Row width according to breakpoints above
-theme.maxRowWidth = [500, 700, 960, 1200]; // px
-
 // Values for the fontFamily prop
 theme.fonts = {
   brand: 'Righteous',
@@ -32,19 +32,25 @@ theme.fonts = {
 };
 
 // Values for fontWeight prop
-theme.fontWeights = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+theme.fontWeights = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
 // Array of numbers to use as a typographic scale
-theme.fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 96, 128];
+theme.fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 96];
 
 // Array of numbers for use as margin and pixel values
 theme.space = [0, 4, 8, 16, 32, 64, 128, 256, 512];
 
+// Array of numbers to use as height value
+theme.width = [16, 32, 48, 64, 128, 256, 512];
+
+// Array of numbers to use as height value
+theme.height = [16, 32, 48, 64, 128, 256, 512];
+
 // Values for lineHeight prop
 theme.lineHeights = {
   solid: 1,
-  title: 1.25,
-  copy: 1.5,
+  headline: 1.25,
+  body: 1.5,
 };
 
 // Values for letterSpacing prop
@@ -76,9 +82,11 @@ theme.transitionDur = {
 };
 
 // Values for boxShadow prop
-theme.shadows = {
-  small: '0 0 4px rgba(0, 0, 0, .125)',
-  large: '0 0 24px rgba(0, 0, 0, .125)',
-};
+theme.boxShadows = [
+  '0 0 2px 0 rgba(0,0,0,.08),0 1px 4px 0 rgba(0,0,0,.16)',
+  '0 0 2px 0 rgba(0,0,0,.08),0 2px 8px 0 rgba(0,0,0,.16)',
+  '0 0 2px 0 rgba(0,0,0,.08),0 4px 16px 0 rgba(0,0,0,.16)',
+  '0 0 2px 0 rgba(0,0,0,.08),0 8px 32px 0 rgba(0,0,0,.16)',
+];
 
 export default theme;
