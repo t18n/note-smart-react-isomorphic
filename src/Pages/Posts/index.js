@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import truncate from 'src/helpers/truncate';
+import { fetchAllPosts } from 'src/helpers/loadData';
+
 import FlexBox from 'src/Components/FlexBox';
 import CardBox from 'src/Components/CardBox';
 import { H3, Span } from 'src/Components/Typo';
@@ -12,21 +14,30 @@ import Badge from 'src/Components/Badge';
 // Import all files inside `data` via Webpack require.context
 // Read more:
 // https://goo.gl/315fi3 - Importing Multiple Markdown files into a React Component with Webpack
-const postContext = require.context('../../../content', false, /\.md$/);
-const postFiles = postContext
-  .keys()
-  .map(filename => postContext(filename));
-
 class Posts extends React.Component {
   state = {
-    posts: [],
-    lang: 'en',
+    posts: (this.props.staticContext && this.props.staticContext.data)
+      ? this.props.staticContext.data : [],
   }
 
-  componentDidMount() {
-    const posts = postFiles;
+  async componentDidMount() {
     const { lang } = this.props.match.params;
-    this.setState(state => ({ ...state, posts, lang }));
+
+    if (window.ROUTE_LOADED_DATA) {
+      // console.log('Data preloaded');
+      this.setState({
+        posts: window.ROUTE_LOADED_DATA,
+      });
+      delete window.ROUTE_LOADED_DATA;
+    } else {
+      // console.log('Data not preloaded. Fetching...');
+      await fetchAllPosts().then((data) => {
+        this.setState({
+          lang,
+          posts: data,
+        });
+      });
+    }
   }
 
   render() {
@@ -46,8 +57,8 @@ class Posts extends React.Component {
         >
           {
             posts.map((post, i) => (
-              <CardBox width={[1, 1/3]} px={[1, 2, 3]} py={[0, 1, 2]} mx={[1, 2, 3]}>
-                <Link key={i} to={`/${lang}/posts/${post.slug}`}>
+              <CardBox key={i} width={[1, 1/3]} px={[1, 2, 3]} py={[0, 1, 2]} mx={[1, 2, 3]}>
+                <Link to={`/${lang}/posts/${post.slug}`}>
                   <H3 dangerouslySetInnerHTML={{ __html: post.title }} />
                 </Link>
                 <Span dangerouslySetInnerHTML={{ __html: truncate(post.__content) }} />
@@ -71,6 +82,14 @@ Posts.propTypes = {
       lang: PropTypes.string.isRequired,
     }),
   }).isRequired,
+
+  staticContext: PropTypes.shape({
+    data: PropTypes.array,
+  }),
+};
+
+Posts.defaultProps = {
+  staticContext: {},
 };
 
 export default Posts;

@@ -4,13 +4,13 @@ import NotFound404 from 'src/Pages/404';
 import Posts from 'src/Pages/Posts';
 import Books from 'src/Pages/Books';
 
-import loadData from 'src/helpers/loadData';
+import { fetchAllBooks, fetchAllPosts } from 'src/helpers/loadData';
 
-const routes = [
-  { path: '/', exact: true, component: Home },
-  { path: '/login', component: Login },
-  { path: '/books', component: Books },
-  { path: '/posts', component: Posts, loadData: () => loadData('posts') },
+const routes = lang => [
+  { path: `/${lang}/`, exact: true, component: Home },
+  { path: `/${lang}/login`, component: Login },
+  { path: `/${lang}/books`, component: Books, loadData: () => fetchAllBooks() },
+  { path: `/${lang}/posts`, component: Posts, loadData: () => fetchAllPosts() },
   { component: NotFound404 },
 ];
 

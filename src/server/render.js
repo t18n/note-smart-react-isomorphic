@@ -10,9 +10,13 @@ import serialize from 'serialize-javascript';
 import AppWrapper from 'src/App/AppWrapper';
 import Markup from 'src/Components/HTML';
 
-import extractLocalesFromReq from 'src/client-locale/extractLocalesFromReq';
-import guessLocale from 'src/client-locale/guessLocale';
-import { LOCALE_COOKIE_NAME, COOKIE_MAX_AGE } from 'src/client-locale/constants';
+import { getLocaleOnServer } from 'src/i18n/helpers';
+import {
+  LOCALE_COOKIE_NAME,
+  COOKIE_MAX_AGE,
+  LOCALE_AVAILABLE,
+  LOCALE_DEFAULT,
+} from 'src/i18n/helpers/constants';
 import {
   log, error, warning,
 } from 'src/Components/Logger';
@@ -24,20 +28,19 @@ import Sitemap from './sitemap';
 
 export default ({ clientStats }) => (req, res) => {
   // Prepare Language
-  const userLocales = extractLocalesFromReq(req);
-  let lang = guessLocale(['vi', 'en'], userLocales, 'en');
-
-  if (req.originalUrl.substr(1, 2) === 'vi') lang = 'vi';
-  if (req.originalUrl.substr(1, 2) === 'en') lang = 'en';
+  // TODO: Properly redirect language to preveous use
+  let lang = getLocaleOnServer(req);
+  lang = req.originalUrl.substr(1, 2);
+  lang = (LOCALE_AVAILABLE.includes(lang)) ? lang : LOCALE_DEFAULT;
+  // console.log(lang);
 
   // Match current route and check if loadData is required
-  const currentRoute = routes.find(route => matchPath(req.url, route)) || {};
+  const currentRoute = routes(lang).find(route => matchPath(req.url, route)) || {};
   const promise = (currentRoute.loadData) ? currentRoute.loadData() : Promise.resolve(null);
 
   // Prepare out stylesheets and apply to DOM
   const stylesheet = new ServerStyleSheet();
 
-  // TODO: Fetch isomorphic-data
   promise.then((data) => {
     // Prepare data
     const context = { data };

@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppWrapper from 'src/App/AppWrapper';
 import ScrollToTop from 'src/Components/ScrollToTop';
+import { getLocaleOnClient } from 'src/i18n/helpers';
 
 /* eslint-disable no-restricted-globals */
 export default class extends React.Component {
@@ -12,13 +13,13 @@ export default class extends React.Component {
   }
 
   render() {
-    const isEn = location.pathname.substr(1, 2) === 'en' && 'en';
-    const isVi = location.pathname.substr(1, 2) === 'vi' && 'vi';
-    const currentLang = isEn || isVi || 'en';
+    // Determine current language by name
+    const currentLang = getLocaleOnClient(location);
+
     return (
       <Router>
         <ScrollToTop>
-          <AppWrapper lang={navigator && currentLang} />
+          <AppWrapper lang={currentLang} />
         </ScrollToTop>
       </Router>
     );

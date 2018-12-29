@@ -35,6 +35,12 @@ const GlobalizeStyle = createGlobalStyle`
     width: 100%;
     height: 100%;
     text-rendering: optimizeLegibility;
+    position: relative;
+  }
+
+  body > div {
+    position: relative;
+    min-height: 100%;
   }
 
   h1, h2, h3, h4 {

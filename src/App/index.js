@@ -47,7 +47,7 @@ export default ({ lang }) => (
       />
 
       {/* Define Redirect logic if any */}
-      <RedirectWithStatus httpStatus={301} exact from="/:lang" to={`/${lang}`} />
+      <RedirectWithStatus httpStatus={301} from="/:lang" to={`/${lang}`} />
       <RedirectWithStatus httpStatus={301} from="/:lang/users" to="/" />
       <RedirectWithStatus httpStatus={302} from="/:lang/courses" to="/:lang/404" />
 
@@ -56,6 +56,5 @@ export default ({ lang }) => (
     </Switch>
 
     <Footer />
-    {/* Footer here */}
   </React.Fragment>
 );

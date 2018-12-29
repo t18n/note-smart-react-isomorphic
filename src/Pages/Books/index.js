@@ -1,44 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import loadData from 'src/helpers/loadData';
+import { fetchAllBooks } from 'src/helpers/loadData';
 import Head from 'src/Components/Head';
-import Footer from 'src/Components/Footer';
+import FlexBox from 'src/Components/FlexBox';
+import { H3 } from 'src/Components/Typo';
+
 
 class Books extends React.Component {
-  constructor(props) {
-    super(props);
+  // Check if staticContext exists
+  // because it will be undefined if rendered through a BrowserRouter
+  state = {
+    books: (this.props.staticContext && this.props.staticContext.data)
+      ? this.props.staticContext.data : [],
+  };
 
-    // Check if staticContext exists
-    // because it will be undefined if rendered through a BrowserRouter
-    this.state = (props.staticContext && props.staticContext.data) ? {
-      data: props.staticContext.data,
-    } : { data: [] };
-  }
-
-  componentDidMount() {
-    setTimeout(() => {
-      if (window.ROUTE_LOADED_DATA) {
+  async componentDidMount() {
+    if (window.ROUTE_LOADED_DATA) {
+      // console.log('Data preloaded');
+      this.setState({
+        books: window.ROUTE_LOADED_DATA,
+      });
+      delete window.ROUTE_LOADED_DATA;
+    } else {
+      // console.log('Data not preloaded. Fetching...');
+      await fetchAllBooks().then((data) => {
         this.setState({
-          data: window.ROUTE_LOADED_DATA,
+          books: data,
         });
-        delete window.ROUTE_LOADED_DATA;
-      } else {
-        loadData('posts').then((data) => {
-          this.setState({
-            data,
-          });
-        });
-      }
-    }, 0);
+      });
+    }
   }
 
   render() {
-    const { data } = this.state;
+    const { books } = this.state;
     return (
       <React.Fragment>
         <Head title="Books" />
-        <ul>{data.map(post => <li key={post.id}>{post.title}</li>)}</ul>
-        <Footer />
+        <FlexBox width={1/2} mx="auto" flexDirection="column" alignItems="flex-start">
+          {
+            books.map(book => <H3 key={book.id}>{book.title}</H3>)
+          }
+        </FlexBox>
       </React.Fragment>
     );
   }

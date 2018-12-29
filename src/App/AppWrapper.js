@@ -15,12 +15,8 @@ const AppWrapper = ({ lang }) => (
   </ThemeProvider>
 );
 
-AppWrapper.defaultProps = {
-  lang: 'en',
-};
-
 AppWrapper.propTypes = {
-  lang: PropTypes.string,
+  lang: PropTypes.string.isRequired,
 };
 
 export default AppWrapper;

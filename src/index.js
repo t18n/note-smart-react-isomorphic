@@ -1,7 +1,7 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import AppRoot from './App/AppRoot';
+import Client from './App/Client';
 
 const render = (Component) => {
   hydrate(
@@ -11,12 +11,12 @@ const render = (Component) => {
     document.getElementById('app'),
   );
 };
-render(AppRoot);
+render(Client);
 
 // Enable Hot Module Replacement
 if (module.hot) {
-  module.hot.accept('./App/AppRoot.js', () => {
-    const NewAppRoot = require('./App/AppRoot.js').default; // eslint-disable-line global-require
-    render(NewAppRoot);
+  module.hot.accept('./App/Client.js', () => {
+    const NewClient = require('./App/Client.js').default; // eslint-disable-line global-require
+    render(NewClient);
   });
 }
