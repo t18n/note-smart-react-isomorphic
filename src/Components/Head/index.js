@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
+import favicon from 'src/assets/images/favicon.png';
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -14,13 +15,9 @@ const Head = ({
     <meta property="og:title" content={title} />
     <meta property="og:description" content={desc} />
     <meta property="og:image" content={image} />
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="https://i.imgur.com/mMOR6Y7.png"
-    />
-    <link rel="icon" sizes="192x192" href="https://i.imgur.com/mMOR6Y7.png" />
-    <link rel="apple-touch-icon-precomposed" href="https://i.imgur.com/mMOR6Y7.png" />
+    <link rel="shortcut icon" type="image/x-icon" href={favicon} />
+    <link rel="icon" sizes="192x192" href={favicon} />
+    <link rel="apple-touch-icon-precomposed" href={favicon} />
     <link
       rel="manifest"
       href={`${isProd ? 'https://production/' : 'http://localhost:8080/'}manifest.json`}
