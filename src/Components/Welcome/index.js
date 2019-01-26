@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import icon from 'assets/images/react-icon.png';
+// import icon from 'static/images/react-icon.png';
 import styled from 'styled-components';
 
 const Component = ({ message, appName }) => (

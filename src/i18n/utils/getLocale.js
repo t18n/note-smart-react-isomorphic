@@ -1,4 +1,4 @@
-import getCookie from 'src/helpers/getCookie';
+import getCookie from 'src/utils/getCookie';
 import { LOCALE_DEFAULT, LOCALE_COOKIE_NAME, LOCALE_AVAILABLE } from './constants';
 
 // Get Locale from request server

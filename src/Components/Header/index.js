@@ -2,7 +2,7 @@ import React from 'react';
 import { Anchor, NavLink } from 'src/Components/Navigation';
 import PropTypes from 'prop-types';
 
-import logo from 'src/assets/images/full-logo.svg';
+import logo from 'src/static/images/full-logo.svg';
 
 import Head from 'src/Components/Head';
 import FlexBox from 'src/Components/FlexBox';

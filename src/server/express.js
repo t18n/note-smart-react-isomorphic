@@ -1,10 +1,6 @@
 import express from 'express';
+import 'src/utils/logger';
 import cookieParser from 'cookie-parser';
-
-import {
-  log, success,
-} from 'src/Components/Logger';
-
 import bundleDev from './bundleSettings/dev';
 import bundleProd from './bundleSettings/prod';
 
@@ -19,14 +15,10 @@ let isBuilt = false;
 
 server.listen(PORT, () => {
   isBuilt = true;
-  log([
-    'Server listening on ',
-    `${success(`http://localhost:${PORT}`)} in `,
-    `${success(process.env.NODE_ENV)} 🌎...`,
-  ].join(''));
+  logInfo(`Server listening on http://localhost:${PORT} ${process.env.NODE_ENV}`);
 });
 
-const done = () => !isBuilt && log(success('App is built'));
+const done = () => !isBuilt && console.log('App is built');
 
 
 // If Development environment

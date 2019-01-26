@@ -5,9 +5,10 @@
   "repository": "",
   "license": "UNLICENSED",
   "scripts": {
+    "license-check": "license-checker --exclude 'MIT, MIT OR X11, BSD, ISC, Public Domain'",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
-    "clean-babel-cache": "rimraf -rf ./node_modules/.cache/babel-loader/*",
+    "clean": "rimraf -rf ./node_modules/.cache/babel-loader/*",
     "prod": "NODE_ENV=production node src/server/index.js",
     "dev": "NODE_ENV=development nodemon --watch src/server --watch config --inspect src/server/index.js"
   },
@@ -34,7 +35,6 @@
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-universal-import": "^3.1.2",
     "brotli-webpack-plugin": "^1.0.0",
-    "chalk": "^2.4.1",
     "compression-webpack-plugin": "^2.0.0",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.4",
@@ -43,7 +43,6 @@
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
     "import": "0.0.6",
-    "isomorphic-fetch": "^2.2.1",
     "isomorphic-unfetch": "^3.0.0",
     "markdown-with-front-matter-loader": "^0.1.0",
     "node-noop": "^1.0.0",
@@ -67,7 +66,9 @@
     "webpack-dev-middleware": "3.4.0",
     "webpack-flush-chunks": "^2.0.3",
     "webpack-hot-middleware": "2.24.3",
-    "webpack-hot-server-middleware": "^0.5.0"
+    "webpack-hot-server-middleware": "^0.5.0",
+    "winston": "^3.1.0",
+    "winston-daily-rotate-file": "^3.6.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -80,6 +81,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "husky": "^1.2.1",
+    "license-checker": "^25.0.1",
     "lint-staged": "^8.1.0",
     "nodemon": "^1.18.9"
   },

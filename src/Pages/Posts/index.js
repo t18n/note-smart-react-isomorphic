@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import truncate from 'src/helpers/truncate';
-import { fetchAllPosts } from 'src/helpers/loadData';
+import truncate from 'src/utils/truncate';
+import { fetchAllPosts } from 'src/utils/loadData';
 
 import FlexBox from 'src/Components/FlexBox';
 import CardBox from 'src/Components/CardBox';
@@ -24,13 +24,13 @@ class Posts extends React.Component {
     const { lang } = this.props.match.params;
 
     if (window.ROUTE_LOADED_DATA) {
-      // console.log('Data preloaded');
+      console.log('Data preloaded');
       this.setState({
         posts: window.ROUTE_LOADED_DATA,
       });
       delete window.ROUTE_LOADED_DATA;
     } else {
-      // console.log('Data not preloaded. Fetching...');
+      console.log('Data not preloaded. Fetching...');
       await fetchAllPosts().then((data) => {
         this.setState({
           lang,

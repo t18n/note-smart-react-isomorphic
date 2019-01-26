@@ -6,15 +6,15 @@ import { ApolloProvider } from 'react-apollo';
 
 import theme from 'src/styles/theme';
 import GlobalizeStyle from 'src/styles/global-styles';
-import App from 'src/App';
-import apolloClient from 'src/data';
+import RouteComponents from 'src/App/RouteComponents';
+import apolloClient from 'src/data/ApolloClient';
 
 const AppWrapper = ({ lang }) => (
   <ApolloProvider client={apolloClient}>
     <ThemeProvider theme={theme}>
       <React.Fragment>
         <GlobalizeStyle />
-        <App lang={lang} />
+        <RouteComponents lang={lang} />
       </React.Fragment>
     </ThemeProvider>
   </ApolloProvider>

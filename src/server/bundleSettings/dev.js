@@ -4,10 +4,6 @@ import webpackHotServerMiddleware from 'webpack-hot-server-middleware';
 import configDevClient from 'config/webpack.dev-client';
 import configDevServer from 'config/webpack.dev-server';
 
-import {
-  log, info,
-} from 'src/Components/Logger';
-
 /* eslint-disable global-require */
 const bundleDev = (server, callback) => {
   const compiler = webpack([configDevClient, configDevServer]);
@@ -29,7 +25,7 @@ const bundleDev = (server, callback) => {
   server.use(webpackDevMiddleware);
   server.use(webpackHotMiddlware);
   server.use(webpackHotServerMiddleware(compiler));
-  log(info('Middleware enabled'));
+  console.log('Middleware enabled');
   callback();
 };
 

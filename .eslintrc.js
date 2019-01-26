@@ -5,6 +5,14 @@ module.exports = {
     "node": true, //# Node.js global variables and Node.js scoping.
   },
 
+  // Specifying global variables
+  "globals": {
+    "logInfo": true,
+    "logWarning": true,
+    "logError": true,
+    "logDebug": true,
+  },
+
   "parser": "babel-eslint", // By default, ESLint expects ECMAScript 5 syntax, specify ES6 instead
 
   "parserOptions": {

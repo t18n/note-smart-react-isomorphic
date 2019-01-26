@@ -3,7 +3,7 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
 
-import { fetchAllBooks } from 'src/helpers/loadData';
+import { fetchAllBooks } from 'src/utils/loadData';
 import Head from 'src/Components/Head';
 import FlexBox from 'src/Components/FlexBox';
 import { H3 } from 'src/Components/Typo';
@@ -31,13 +31,13 @@ class Books extends React.Component {
 
   async componentDidMount() {
     if (window.ROUTE_LOADED_DATA) {
-      // console.log('Data preloaded');
+      console.log('Data preloaded');
       this.setState({
         books: window.ROUTE_LOADED_DATA,
       });
       delete window.ROUTE_LOADED_DATA;
     } else {
-      // console.log('Data not preloaded. Fetching...');
+      console.log('Data not preloaded. Fetching...');
       await fetchAllBooks().then((data) => {
         this.setState({
           books: data,

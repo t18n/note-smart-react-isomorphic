@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import favicon from 'src/assets/images/favicon.png';
+import favicon from 'src/static/images/favicon.png';
 
 const isProd = process.env.NODE_ENV === 'production';
 

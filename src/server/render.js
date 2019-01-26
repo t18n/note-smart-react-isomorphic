@@ -10,21 +10,18 @@ import serialize from 'serialize-javascript';
 import AppWrapper from 'src/App/AppWrapper';
 import Markup from 'src/Components/HTML';
 
-import { getLocaleOnServer } from 'src/i18n/helpers';
+import { getLocaleOnServer } from 'src/i18n/utils';
 import {
   LOCALE_COOKIE_NAME,
   COOKIE_MAX_AGE,
   LOCALE_AVAILABLE,
   LOCALE_DEFAULT,
-} from 'src/i18n/helpers/constants';
-import {
-  log, error, warning,
-} from 'src/Components/Logger';
+} from 'src/i18n/utils/constants';
 
 import routes from 'src/routes';
-import Manifest from './manifest';
-import Robots from './robots';
-import Sitemap from './sitemap';
+import Manifest from './SEO/manifest';
+import Robots from './SEO/robots';
+import Sitemap from './SEO/sitemap';
 
 export default ({ clientStats }) => (req, res) => {
   // Prepare Language
@@ -68,7 +65,9 @@ export default ({ clientStats }) => (req, res) => {
     const status = context.status || 200;
 
     // If a page doesn't exist, will redirect to 404 on client and log to admin console
-    if (context.status === 404) log(error('Error 404: ') + warning(req.originalUrl));
+    if (context.status === 404) {
+      logError(`Error 404: ${req.originalUrl}`);
+    }
 
     // If request for a site map
     if (req.url === '/sitemap.xml') {

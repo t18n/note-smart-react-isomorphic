@@ -6,6 +6,9 @@ import Footer from 'src/Components/Footer';
 import Loading from 'src/Components/Loading';
 import { RedirectWithStatus } from 'src/Components/SSR';
 
+/*
+* Create a Universal Component template, allowing SSR a component + Code Splitting
+*/
 const UniversalComponent = universal(props => import(`../Pages/${props.page}`), {
   loading: () => <Loading />,
   ignoreBabelRename: true,
@@ -16,35 +19,13 @@ export default ({ lang }) => (
     <Header lang={lang} />
 
     <Switch>
-      <Route
-        exact
-        path="/:lang"
-        render={routeProps => <UniversalComponent page="Home" {...routeProps} />}
-      />
+      <Route exact path="/:lang" render={props => <UniversalComponent page="Home" {...props} />} />
+      <Route exact path="/:lang/login" render={props => <UniversalComponent page="Login" {...props} />} />
 
-      <Route
-        exact
-        path="/:lang/login"
-        render={routeProps => <UniversalComponent page="Login" {...routeProps} />}
-      />
+      <Route exact path="/:lang/books" render={props => <UniversalComponent page="Books" {...props} />} />
 
-      <Route
-        exact
-        path="/:lang/books"
-        render={routeProps => <UniversalComponent page="Books" {...routeProps} />}
-      />
-
-      <Route
-        exact
-        path="/:lang/posts"
-        render={routeProps => <UniversalComponent page="Posts" {...routeProps} />}
-      />
-
-      <Route
-        exact
-        path="/:lang/posts/:slug"
-        render={routeProps => <UniversalComponent page="Post" {...routeProps} />}
-      />
+      <Route exact path="/:lang/posts" render={props => <UniversalComponent page="Posts" {...props} />} />
+      <Route exact path="/:lang/posts/:slug" render={props => <UniversalComponent page="Post" {...props} />} />
 
       {/* Define Redirect logic if any */}
       <RedirectWithStatus httpStatus={301} from="/:lang" to={`/${lang}`} />
@@ -52,7 +33,7 @@ export default ({ lang }) => (
       <RedirectWithStatus httpStatus={302} from="/:lang/courses" to="/:lang/404" />
 
       {/* If url is not defined, go 404 */}
-      <Route render={routeProps => <UniversalComponent page="404" {...routeProps} />} />
+      <Route render={props => <UniversalComponent page="404" {...props} />} />
     </Switch>
 
     <Footer />

@@ -4,7 +4,7 @@ import { Image, Box } from 'rebass';
 import FlexBox from 'src/Components/FlexBox';
 import { TextBlock } from 'src/Components/Typo';
 
-const imagePath = require('src/assets/images/full-logo.svg');
+const imagePath = require('src/static/images/full-logo.svg');
 
 const BoxWithFooter = Box.withComponent('footer');
 

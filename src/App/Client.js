@@ -3,25 +3,14 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppWrapper from 'src/App/AppWrapper';
 import ScrollToTop from 'src/Components/ScrollToTop';
-import { getLocaleOnClient } from 'src/i18n/helpers';
+import { getLocaleOnClient } from 'src/i18n/utils';
 
-/* eslint-disable no-restricted-globals */
-export default class extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const ClientApp = () => (
+  <Router>
+    <ScrollToTop>
+      <AppWrapper lang={getLocaleOnClient(window.location)} />
+    </ScrollToTop>
+  </Router>
+);
 
-  render() {
-    // Determine current language by name
-    const currentLang = getLocaleOnClient(location);
-
-    return (
-      <Router>
-        <ScrollToTop>
-          <AppWrapper lang={currentLang} />
-        </ScrollToTop>
-      </Router>
-    );
-  }
-}
+export default ClientApp;
