@@ -19,9 +19,9 @@ import {
 } from 'src/i18n/utils/constants';
 
 import routes from 'src/routes';
-import Manifest from './SEO/manifest';
-import Robots from './SEO/robots';
-import Sitemap from './SEO/sitemap';
+import Manifest from 'src/Pages/manifest';
+import Robots from 'src/Pages/robots';
+import Sitemap from 'src/Pages/sitemap';
 
 export default ({ clientStats }) => (req, res) => {
   // Prepare Language
@@ -50,6 +50,7 @@ export default ({ clientStats }) => (req, res) => {
         </StyleSheetManager>
       </StaticRouter>,
     );
+
     // Can only be called after your element is rendered
     const styles = stylesheet.getStyleTags(); // Get all the tags from the sheet
 
