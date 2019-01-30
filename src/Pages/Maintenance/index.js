@@ -1,10 +1,12 @@
 import React from 'react';
 
-import Welcome from 'src/Components/Welcome';
+import { Heading } from 'src/Components/Typo';
 
 const Maintenance = () => (
   <React.Fragment>
-    <Welcome message="Thank you for visiting the web app :)" />
+    <Heading as="h3">
+      Thank you for visiting the web app :)
+    </Heading>
     <form>
       <input type="text" placeholder="Email here" />
       <input type="submit" value="Submit" />

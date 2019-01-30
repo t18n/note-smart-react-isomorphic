@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import FlexBox from 'src/Components/FlexBox';
-import CardBox from 'src/Components/CardBox';
-import { H3, Span } from 'src/Components/Typo';
+import { CardBox, FlexBox } from 'src/Components/Layout';
+import { Heading, Text } from 'src/Components/Typo';
 import Head from 'src/Components/Head';
 import Badge from 'src/Components/Badge';
 
@@ -42,11 +41,11 @@ class Post extends React.Component {
           justifyContent="space-between"
         >
           <CardBox width={1} px={[1, 2, 3]} py={[0, 1, 2]} mx={[1, 2, 3]}>
-            <H3 dangerouslySetInnerHTML={{ __html: post.title }} />
-            <Span dangerouslySetInnerHTML={{ __html: post.__content }} />
+            <Heading as="h3" dangerouslySetInnerHTML={{ __html: post.title }} />
+            <Text as="span" dangerouslySetInnerHTML={{ __html: post.__content }} />
             <FlexBox width={1}>
               <Badge bg="success" dangerouslySetInnerHTML={{ __html: post.category }} />
-              <Span float="right" dangerouslySetInnerHTML={{ __html: post.date }} />
+              <Text as="span" float="right" dangerouslySetInnerHTML={{ __html: post.date }} />
             </FlexBox>
           </CardBox>
         </FlexBox>

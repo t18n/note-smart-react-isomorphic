@@ -1,9 +1,14 @@
 /* eslint react/prop-types: 0 */
 import React from 'react';
-import Welcome from 'src/Components/Welcome';
+import styled from 'styled-components';
 import Head from 'src/Components/Head';
-import Footer from 'src/Components/Footer';
 import Translate from 'src/Components/Languages';
+
+const Welcome = styled.div`
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+`;
 
 const Home = ({ match }) => {
   const { lang } = match.params;
@@ -11,8 +16,10 @@ const Home = ({ match }) => {
   return (
     <React.Fragment>
       <Head title="Home page" />
-      <Welcome message={Translate(lang, 'language.title')} />
-      <Footer />
+      <Welcome as="main">
+        <h2>{Translate(lang, 'language.title')}</h2>
+        Welcome
+      </Welcome>
     </React.Fragment>
   );
 };

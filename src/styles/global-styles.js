@@ -20,8 +20,12 @@ const GlobalizeStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html {
+  html, body {
+    width: 100%;
     height: 100%;
+  }
+
+  html {
     line-height: 1.15; 
     -webkit-text-size-adjust: 100%;
   }
@@ -32,15 +36,24 @@ const GlobalizeStyle = createGlobalStyle`
     background: ${props => props.theme.colors.oldPaper};
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
     text-rendering: optimizeLegibility;
     position: relative;
   }
 
-  body > div {
+  #app {
     position: relative;
     min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #app > main {
+    flex-grow: 1;
+  }
+
+  #app > header, #app > main, #app > footer {
+    flex-shrink: 0;
   }
 
   h1, h2, h3, h4 {

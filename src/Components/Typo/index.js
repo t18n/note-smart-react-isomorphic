@@ -1,21 +1,4 @@
-import {
-  H1,
-  H2,
-  H3,
-} from './Heading';
-import {
-  TextBlock,
-  P,
-  Span,
-  Small,
-} from './TextBlock';
+import Heading from './Heading';
+import Text from './Text';
 
-export {
-  H1,
-  H2,
-  H3,
-  TextBlock,
-  P,
-  Span,
-  Small,
-};
+export { Heading, Text };

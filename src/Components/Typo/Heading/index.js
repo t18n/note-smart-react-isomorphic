@@ -1,22 +1,14 @@
 import styled from 'styled-components';
-import { Heading } from 'rebass';
+import { Heading as H } from 'rebass';
 
-const StyledHeading = styled(Heading)`
+const Heading = styled(H)`
   font-family: ${props => props.theme.fonts.headline};
 `;
 
-StyledHeading.defaultProps = {
+Heading.defaultProps = {
   fontSize: [2, 3, 4],
   lineHeight: 'title',
   m: 0,
 };
 
-const H1 = StyledHeading.withComponent('h1');
-const H2 = StyledHeading.withComponent('h2');
-const H3 = StyledHeading.withComponent('h3');
-
-export {
-  H1,
-  H2,
-  H3,
-};
+export default Heading;

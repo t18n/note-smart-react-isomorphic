@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Container from 'src/Components/Container';
+import { Container } from 'src/Components/Layout';
 
 const StyledLink = styled(Link)`
   display: ${props => props.display};

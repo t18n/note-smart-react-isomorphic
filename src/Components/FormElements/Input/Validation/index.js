@@ -1,17 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Span } from 'src/Components/Typo';
+import { Text } from 'src/Components/Typo';
 
 const FormValidation = ({
   isShow, messageType, message, ...rest
 }) => (
-  <StyledFormValidation isShow={isShow} messageType={messageType} {...rest}>
+  <StyledFormValidation as="span" isShow={isShow} messageType={messageType} {...rest}>
     {message}
   </StyledFormValidation>
 );
 
-const StyledFormValidation = styled(Span)`
+const StyledFormValidation = styled(Text)`
   width: 100%;
   display: ${props => (props.isShow ? 'block' : 'none')};
   color: ${props => (props.messageType ? props.theme.colors[props.messageType] : props.theme.colors.black)};

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Form, Input } from 'src/Components/FormElements';
 import Head from 'src/Components/Head';
-import Footer from 'src/Components/Footer';
 
 const Login = () => (
   <React.Fragment>
@@ -35,7 +34,6 @@ const Login = () => (
         messageType="danger"
       />
     </Form>
-    <Footer />
   </React.Fragment>
 );
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-// import Container from 'src/Components/Container';
+// import { Container } from 'src/Components/Layout';
 
 const arrowDown = 'static/icons/arrow_solid_black.svg';
 
@@ -51,8 +51,6 @@ const StyledInputField = styled.input`
       }
   }
 `;
-
-// const StyledContainerInput = StyledInputField.withComponent('input');
 
 const InputField = ({
   id, placeholder, type, ...rest

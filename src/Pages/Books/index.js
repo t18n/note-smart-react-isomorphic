@@ -1,25 +1,11 @@
 import React from 'react';
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
+// import { Query } from 'react-apollo';
 import PropTypes from 'prop-types';
 
 import { fetchAllBooks } from 'src/utils/loadData';
 import Head from 'src/Components/Head';
-import FlexBox from 'src/Components/FlexBox';
-import { H3 } from 'src/Components/Typo';
-
-const queryBooks = gql`
-  {
-    books {
-      id
-      title
-      authors {
-        id
-        username
-      }
-    }
-  }
-`;
+import { FlexBox } from 'src/Components/Layout';
+import { Heading } from 'src/Components/Typo';
 
 class Books extends React.Component {
   // Check if staticContext exists
@@ -32,15 +18,16 @@ class Books extends React.Component {
   async componentDidMount() {
     if (window.ROUTE_LOADED_DATA) {
       console.log('Data preloaded');
+      const books = window.ROUTE_LOADED_DATA;
       this.setState({
-        books: window.ROUTE_LOADED_DATA,
+        books,
       });
       delete window.ROUTE_LOADED_DATA;
     } else {
       console.log('Data not preloaded. Fetching...');
-      await fetchAllBooks().then((data) => {
+      await fetchAllBooks().then((books) => {
         this.setState({
-          books: data,
+          books,
         });
       });
     }
@@ -51,23 +38,9 @@ class Books extends React.Component {
     return (
       <React.Fragment>
         <Head title="Books" />
-        <Query query={queryBooks}>
-          {({ loading, error, data }) => {
-            if (loading) return <p>Loading...</p>;
-            if (error) return <p>Error :(</p>;
-
-            return (
-              <FlexBox width={1 / 2} mx="auto" flexDirection="column" alignItems="flex-start">
-                {
-                  data.books.map(book => <H3 key={book.id}>{book.title}</H3>)
-                }
-              </FlexBox>
-            );
-          }}
-        </Query>
         <FlexBox width={1 / 2} mx="auto" flexDirection="column" alignItems="flex-start">
           {
-            books.map(book => <H3 key={book.id}>{book.title}</H3>)
+            books.map(book => <Heading as="h3" key={book.id}>{book.title}</Heading>)
           }
         </FlexBox>
       </React.Fragment>

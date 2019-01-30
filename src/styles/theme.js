@@ -1,5 +1,8 @@
 const theme = {};
 
+// Golden ratio
+theme.ratio = 1.6180;
+
 // Array of viewport widths to use for min-width media queries - Mobile first
 theme.breakpoints = [512, 768, 1024, 1280, 1600];
 

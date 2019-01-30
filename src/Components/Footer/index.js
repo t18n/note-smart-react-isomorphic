@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Image, Box } from 'rebass';
-import FlexBox from 'src/Components/FlexBox';
-import { TextBlock } from 'src/Components/Typo';
+import { FlexBox } from 'src/Components/Layout';
+import { Text } from 'src/Components/Typo';
 
 const imagePath = require('src/static/images/full-logo.svg');
 
-const BoxWithFooter = Box.withComponent('footer');
-
-const StyledFooter = styled(BoxWithFooter)`
+const StyledFooter = styled(Box)`
   width: 100%;
   min-height: max-content;
   position: absolute;
@@ -19,13 +17,13 @@ const StyledFooter = styled(BoxWithFooter)`
 `;
 
 const Footer = () => (
-  <StyledFooter py={[2, 3, 4]} px={[3, 4, 5]}>
+  <StyledFooter as="footer" py={[2, 3, 4]} px={[3, 4, 5]}>
     <FlexBox>
       <Image src={imagePath} alt="Brightizen" width="100px" />
 
-      <TextBlock color="black">
+      <Text color="black">
         Copyright © 2018 Brightizen
-      </TextBlock>
+      </Text>
     </FlexBox>
   </StyledFooter>
 );

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import FlexBox from 'src/Components/FlexBox';
+import { FlexBox } from 'src/Components/Layout';
 
 const Form = ({ children, submit, ...rest }) => (
   <FlexBox {...rest}>

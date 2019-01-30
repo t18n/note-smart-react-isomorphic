@@ -1,7 +1,12 @@
+import React from 'react';
 import styled from 'styled-components';
-import Container from 'src/Components/Container';
+import { Container } from 'src/Components/Layout';
 
-const MainNav = styled(Container)`
+const MainNav = ({ ...rest }) => (
+  <StyledMainNav as="header" {...rest} />
+);
+
+const StyledMainNav = styled(Container)`
   width: 100%;
   box-shadow: ${props => props.theme.boxShadows[0]};
   font-weight: ${props => props.theme.fontWeights[7]};

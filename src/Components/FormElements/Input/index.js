@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import FlexBox from 'src/Components/FlexBox';
+import { FlexBox } from 'src/Components/Layout';
 import Label from './Label';
 import Validation from './Validation';
 import InputField from './InputField';

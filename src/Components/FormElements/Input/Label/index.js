@@ -6,15 +6,13 @@ import { Text } from 'rebass';
 const Label = ({
   id, label, children, ...rest
 }) => (
-  <StyledLabel htmlFor={id} {...rest}>
+  <StyledLabel as="label" htmlFor={id} {...rest}>
     {label}
     {children}
   </StyledLabel>
 );
 
-const TextWithLabel = Text.withComponent('label');
-
-const StyledLabel = styled(TextWithLabel)`
+const StyledLabel = styled(Text)`
   font-family: ${props => props.theme.fonts.body};
   display: flex;
   flex-direction: column;

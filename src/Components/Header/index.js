@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import logo from 'src/static/images/full-logo.svg';
 
 import Head from 'src/Components/Head';
-import FlexBox from 'src/Components/FlexBox';
+import { FlexBox } from 'src/Components/Layout';
 import MainNav from './MainNav';
 import Brand from './Brand';
 

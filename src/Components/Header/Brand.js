@@ -14,6 +14,7 @@ const Brand = ({
 
 const StyledBrand = styled(Image)`
   max-width: ${props => (props.width ? 'auto' : '100%')};
+  display: flex;
 `;
 
 Brand.defaultProps = {

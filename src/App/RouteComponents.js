@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router';
 import Header from 'src/Components/Header';
 import Footer from 'src/Components/Footer';
 import Loading from 'src/Components/Loading';
-import { RedirectWithStatus } from 'src/Components/SSR';
+import { RedirectWithStatus } from 'src/Components/Route';
 
 /*
 * Create a Universal Component template, allowing SSR a component + Code Splitting

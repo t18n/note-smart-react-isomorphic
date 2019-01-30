@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Container from 'src/Components/Container';
+import { Container } from 'src/Components/Layout';
 
 const StyledAnchor = styled.a`
   cursor: ${props => (props.href ? 'pointer' : 'default')};
