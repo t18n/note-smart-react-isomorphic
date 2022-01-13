@@ -8,17 +8,17 @@ const SiteMap = `<?xml version="1.0" encoding="UTF-8"?>
     xmlns:xhtml="https://www.w3.org/1999/xhtml/"
   >
     <url>
-      <loc>https://brightizen/en</loc>
+      <loc>https://noteSmart/en</loc>
       <lastmod>2018-09-07T20:22:04+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     <url>
-      <loc>https://brightizen/en/books</loc>
+      <loc>https://noteSmart/en/books</loc>
       <lastmod>2018-12-30T20:22:04+00:00</lastmod>
       <priority>0.80</priority>
     </url>
     <url>
-      <loc>https://brightizen/en/posts</loc>
+      <loc>https://noteSmart/en/posts</loc>
       <lastmod>2018-12-30T20:22:04+00:00</lastmod>
       <priority>0.80</priority>
     </url>

@@ -1,6 +1,6 @@
 const Manifest = {
-  name: 'Brightizen web app',
-  short_name: 'Brightizen',
+  name: 'NoteSmart web app',
+  short_name: 'NoteSmart',
   icons: [
     {
       src: 'https://i.imgur.com/j2UuUt7.png',

@@ -42,7 +42,7 @@ class Post extends React.Component {
         >
           <CardBox width={1} px={[1, 2, 3]} py={[0, 1, 2]} mx={[1, 2, 3]}>
             <Heading as="h3" dangerouslySetInnerHTML={{ __html: post.title }} />
-            <Text as="span" dangerouslySetInnerHTML={{ __html: post.__content }} />
+            <Text as="span" dangerouslySetInnerHTML={{ __html: post.__content }} color="black" />
             <FlexBox width={1}>
               <Badge bg="success" dangerouslySetInnerHTML={{ __html: post.category }} />
               <Text as="span" float="right" dangerouslySetInnerHTML={{ __html: post.date }} />

@@ -1,12 +1,13 @@
-# BRIGHTIZEN isomorphic web app implementation
+# SSR React with Express
 
-### Get started
-1. Prequisites
-  * Node >=8.9.0
-  * Use **Yarn** instead of **NPM** for consistency
+An isomorphic web app (SSR + CSR) to take note in Markdown.
 
-2. Up and running
-  * Clone repo
-  * `cd Brightizen-FE`
-  * `yarn`
-  * `yarn dev`
+## Prequisites
+  - Node >=8.9.0
+  - Use **Yarn** instead of **NPM** for consistency
+
+## Getting started
+  - Clone the repo
+  - Run `yarn`
+  - Run `yarn dev`
+  - Head to `localhost:3000`

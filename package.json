@@ -1,9 +1,9 @@
 {
-  "name": "brightizen-react-ssr",
+  "name": "note-smart-react-ssr",
   "version": "1.0.0",
-  "description": "Brightizen is where you can share and advocate big ideas from books you read.",
+  "description": "NoteSmart is where you can share and advocate big ideas from books you read.",
   "repository": "",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "license-check": "license-checker --exclude 'MIT, MIT OR X11, BSD, ISC, Public Domain'",
     "lint": "eslint .",

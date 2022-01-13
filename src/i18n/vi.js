@@ -1,6 +1,6 @@
 const Vietnamese = {
   language: {
-    title: 'Chào mừng đến với Brightizen',
+    title: 'Chào mừng đến với NoteSmart',
   },
 };
 

@@ -1,6 +1,6 @@
 const English = {
   language: {
-    title: 'Welcome to Brightizen',
+    title: 'Welcome to NoteSmart',
   },
 };
 

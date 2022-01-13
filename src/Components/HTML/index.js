@@ -4,7 +4,7 @@ const Markup = ({
   <!DOCTYPE html>
   <html lang="${lang}">
     <head>
-      <title>Brightizen</title>
+      <title>NoteSmart</title>
       <meta charSet="utf-8" />
       <meta name="theme-color" content="#FF6D00">
       ${styles}

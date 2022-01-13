@@ -4,7 +4,7 @@ import { Image, Box } from 'rebass';
 import { FlexBox } from 'src/Components/Layout';
 import { Text } from 'src/Components/Typo';
 
-const imagePath = require('src/static/images/full-logo.svg');
+const imagePath = require('src/static/images/logo.svg');
 
 const StyledFooter = styled(Box)`
   width: 100%;
@@ -19,10 +19,10 @@ const StyledFooter = styled(Box)`
 const Footer = () => (
   <StyledFooter as="footer" py={[2, 3, 4]} px={[3, 4, 5]}>
     <FlexBox>
-      <Image src={imagePath} alt="Brightizen" width="100px" />
+      <Image src={imagePath} alt="NoteSmart" width="100px" />
 
       <Text color="black">
-        Copyright © 2018 Brightizen
+        Copyright © 2018 NoteSmart
       </Text>
     </FlexBox>
   </StyledFooter>

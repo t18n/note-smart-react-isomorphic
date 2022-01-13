@@ -19,7 +19,7 @@ const StyledBrand = styled(Image)`
 
 Brand.defaultProps = {
   to: '/',
-  alt: 'Brightizen',
+  alt: 'NoteSmart',
 };
 
 Brand.propTypes = {

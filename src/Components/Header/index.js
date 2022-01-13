@@ -1,8 +1,8 @@
 import React from 'react';
-import { Anchor, NavLink } from 'src/Components/Navigation';
+import { NavLink } from 'src/Components/Navigation';
 import PropTypes from 'prop-types';
 
-import logo from 'src/static/images/full-logo.svg';
+import logo from 'src/static/images/logo.svg';
 
 import Head from 'src/Components/Head';
 import { FlexBox } from 'src/Components/Layout';
@@ -23,12 +23,11 @@ const Header = ({ lang, ...rest }) => (
       alignItems="center"
       justifyContent="space-between"
     >
-      <Brand to={`/${lang}`} src={logo} height="30px" />
+      <Brand to={`/${lang}`} src={logo} height="60px" />
       <FlexBox alignItems="center" justifyContent="flex-end">
         <NavLink to={`/${lang}/posts`} mr={[1, 2, 3]}>Posts</NavLink>
         <NavLink to={`/${lang}/books`} mr={[1, 2, 3]}>Books</NavLink>
         <NavLink to={`/${lang}/login`} mr={[1, 2, 3]}>Login</NavLink>
-        <Anchor href="https://www.facebook.com/brightizen" mr={0} newpage textColor>Fanpage</Anchor>
       </FlexBox>
     </FlexBox>
   </MainNav>

@@ -10,7 +10,7 @@ server.use(cookieParser());
 
 const isProd = process.env.NODE_ENV === 'production';
 const isDev = !isProd;
-const PORT = process.env.PORT || 3005;
+const PORT = process.env.PORT || 3000;
 let isBuilt = false;
 
 server.listen(PORT, () => {
